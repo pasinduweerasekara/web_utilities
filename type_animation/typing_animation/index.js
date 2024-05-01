@@ -28,9 +28,10 @@ class TypingObject {
             await this.sleep(this.pause) // Pause for pause duration after typing
 
             for (let i = curPhrase.length; i > 0; i--) { // Loop to delete characters
-                this.element.innerText = curPhrase.substring(0, i - 1) 
-                if (i === 1) { // If all characters are deleted
+                this.element.innerText = curPhrase.substring(0, i) 
+                if (i <= 1) { // If all characters are deleted
                     this.element.innerText = "\u00A0"
+                    continue
                 }
                 await this.sleep(this.deletingSpeed)
             }
@@ -49,10 +50,10 @@ class TypingObject {
 }
 
 // Create instances of TypingObject with different configurations
-const typingElement1 = new TypingObject(element = document.getElementById("element1"), phrases = ["1 This is a Single time loop", "2 Second phrase of texts","3 Last part of the phrases and fished"],loop=false)
-const typingElement2 = new TypingObject(element = document.getElementById("element2"), phrases = ["1 This is a Normal typing", "2 Infinite", "3 loop", " 4 Again to first phrase"], typingSpeed = 20, pause = 1000)
-const typingElement3 = new TypingObject(element = document.getElementById("element3"), phrases = ["1 Fast deleting Loop","2 Second phrase"], deletingSpeed = 10)
-const typingElement4 = new TypingObject(element = document.getElementById("element4"), phrases = ["1 Slow typing loop", "Like a", "Snail..:;"],loop=true, typingSpeed = 1000, pause = 150, deletingSpeed = 100)
+const typingElement1 = new TypingObject(element = document.getElementById("element1"), phrases = ["1 This is a Single time loop", "2 Second phrase of texts","3 Last part of the phrases and fished"],loop=false,typingSpeed=80,pause=200,deletingSpeed=40)
+const typingElement2 = new TypingObject(element = document.getElementById("element2"), phrases = ["1 This is a Normal typing", "2 Infinite", "3 loop", "4 Again to first phrase"],loop = true, typingSpeed = 80, pause = 10)
+const typingElement3 = new TypingObject(element = document.getElementById("element3"), phrases = ["1 Fast deleting Loop","2 Second phrase"],loop=true,typingSpeed=100, pause =500, deletingSpeed = 10)
+const typingElement4 = new TypingObject(element = document.getElementById("element4"), phrases = ["1 Slow typing loop", "2 Like a", "3 Snail..:;"],loop=true, typingSpeed = 500, pause = 15, deletingSpeed = 100)
 
 // Start the typing and deleting animation for each element
 typingElement1.typeAndDelete()

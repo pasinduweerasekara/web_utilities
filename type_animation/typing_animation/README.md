@@ -6,6 +6,7 @@ These are some website utilities that i have created
 * ### typing animation
   * Create a object with TypingObject class with desired properties
   * call typeAndDelete() method through created object
+  * Verify that All the phrases doesn't start with a whitespace 
   * ### example
  
       ~~~js
