@@ -7,6 +7,7 @@
 ### Rules
 * each items css clas must be *product*
 * each item must have show class initially
+* each items feature must be added as a class
 
 ```html
 <div id="product-container">
