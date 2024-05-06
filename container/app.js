@@ -1,5 +1,6 @@
 const productsSet = Array.from(document.querySelectorAll('.product'));
 const container = document.getElementById('internal-container-id');
+let currentFeature = ""
 
 const featureProducts = {
     feature1: productsSet.filter(product => product.classList.contains('feature1')),
@@ -31,17 +32,30 @@ function updateProducts(products) {
 }
 
 document.getElementById('button1').addEventListener('click', () => {
-    updateProducts(productsSet);
+    if(currentFeature !="all"){
+        currentFeature = "all"
+        updateProducts(productsSet);
+    }
 });
 
 document.getElementById('button2').addEventListener('click', () => {
-    updateProducts(featureProducts.feature1);
+    if(currentFeature !="feature1"){
+        currentFeature = "feature1"
+        updateProducts(featureProducts.feature1);
+    }
+    
 });
 
 document.getElementById('button3').addEventListener('click', () => {
-    updateProducts(featureProducts.feature2);
+    if(currentFeature !="feature2"){
+        currentFeature = "feature2"
+        updateProducts(featureProducts.feature2);
+    }
 });
 
 document.getElementById('button4').addEventListener('click', () => {
-    updateProducts(featureProducts.feature3);
-});
+    if(currentFeature !="feature3"){
+        currentFeature = "feature3"
+        updateProducts(featureProducts.feature3);
+    }
+})
